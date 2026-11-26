@@ -23,3 +23,7 @@ Model: `openai/gpt-oss-20b` hosted by Groq, invoked through LangChain and FastAP
 The initially selected Llama model was unavailable in this account; the default now uses the accessible GPT-OSS model. Provider rate limiting was observed during rapid tests. It is handled as HTTP 429 with a retry message, rather than a fake answer. The live smoke script spaces requests to reduce bursts; actual quotas remain account-dependent.
 
 These are bounded smoke checks, not proof of general factual accuracy or resistance to every prompt injection. The deployment Docker stack and production hosting have not been executed/provisioned during this verification. PostgreSQL remains the portfolio's production database; the existing local Java development service may use H2.
+
+## Update — 27 November 2026
+
+Token selection and public FAQ caching were added. All 37 Python tests and five dedicated portfolio chat tests passed. Live Groq outputs and the running portfolio gateway were checked after restarting FastAPI. See [optimization measurements](optimization.md) for the exact token counts, cache results and limitations.
