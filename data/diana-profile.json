@@ -1,0 +1,546 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-26",
+  "source_policy": {
+    "priority": "CV dates, roles and technologies override the technical dossier. The dossier supplies project context and responsibilities only. Earlier owner-confirmed personal interests and independent projects are labelled separately.",
+    "date_precision": "ENGIE and Seine-Saint-Denis are assignments within Leanovia since October 2023. Individual mission dates are not established by the CV. Covéa and Assura belong to the 2022 Leanovia employment; exact mission months are not asserted.",
+    "public_data_only": true
+  },
+  "person": {
+    "name": "Diana Torres",
+    "headline": "Software engineer · QA Automation · Performance & Observability",
+    "experience": "More than five years of software engineering and QA experience",
+    "based_in": "Île-de-France, France",
+    "languages": {
+      "French": "Fluent",
+      "English": "Fluent",
+      "Spanish": "Native"
+    },
+    "links": {
+      "github": "https://github.com/diisat",
+      "linkedin": "https://www.linkedin.com/in/dianaitr/"
+    },
+    "summary": "Builds reliable web, mobile and API automation, integrates testing into CI/CD, and investigates performance through observability. Combines analytical engineering with artistic curiosity.",
+    "sources": [
+      "cv-2026",
+      "owner-confirmed"
+    ]
+  },
+  "skills": {
+    "languages": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "SQL",
+      "PostgreSQL"
+    ],
+    "testing": [
+      "Selenium",
+      "Playwright",
+      "Appium",
+      "Cucumber",
+      "Gherkin",
+      "BrowserStack",
+      "Postman",
+      "Squash",
+      "XRay"
+    ],
+    "delivery": [
+      "GitLab CI/CD",
+      "GitHub Actions",
+      "Jenkins",
+      "Docker",
+      "Kubernetes",
+      "SonarQube",
+      "Jira"
+    ],
+    "performance_observability": [
+      "JMeter",
+      "NeoLoad",
+      "Artillery",
+      "Dynatrace",
+      "Datadog",
+      "Grafana",
+      "ELK"
+    ],
+    "ai": [
+      "LangChain",
+      "Streamlit",
+      "Claude",
+      "ChatGPT",
+      "Codex",
+      "Groq"
+    ],
+    "methods": [
+      "Agile",
+      "Scrum",
+      "SAFe"
+    ]
+  },
+  "experiences": [
+    {
+      "id": "leanovia-current",
+      "organization": "Leanovia Consulting",
+      "role": "QA Automation Consultant · Information Systems Architect",
+      "period": {
+        "start": "2023-10",
+        "end": null
+      },
+      "location": "Paris, France",
+      "technologies": [
+        "Java",
+        "Selenium",
+        "JMeter",
+        "Elastic",
+        "Playwright",
+        "Artillery",
+        "Kubernetes",
+        "Cucumber",
+        "Appium",
+        "BrowserStack",
+        "GitLab CI/CD"
+      ],
+      "details": [
+        "Consulting assignments at ENGIE and the Département de la Seine-Saint-Denis.",
+        "GenAI-assisted test execution and observability platform for Seine-Saint-Denis."
+      ],
+      "sources": [
+        "cv-2026"
+      ],
+      "portfolio_path": "/journey"
+    },
+    {
+      "id": "transunion-dev",
+      "organization": "TransUnion",
+      "role": "Backend Developer",
+      "period": {
+        "start": "2023-01",
+        "end": "2023-10"
+      },
+      "location": "Remote from Cali, Colombia",
+      "technologies": [
+        "Java",
+        "REST APIs",
+        "SonarQube"
+      ],
+      "details": [
+        "Built recurring-payment modules and integrated REST APIs with banking systems.",
+        "Contributed to integrating existing web features into a new mobile banking application in the Your Credit Score project.",
+        "Created automated controls and technical integration documentation; participated in code quality analysis and Agile ceremonies."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-4"
+      ],
+      "portfolio_path": "/journey",
+      "consultancy": {
+        "name": "GML Software",
+        "source": "owner-confirmed",
+        "note": "Previously confirmed by Diana; the CV names the client TransUnion."
+      }
+    },
+    {
+      "id": "leanovia-2022",
+      "organization": "Leanovia Consulting",
+      "role": "QA Automation Consultant · Information Systems Architect",
+      "period": {
+        "start": "2022-01",
+        "end": "2022-12"
+      },
+      "location": "Paris, France",
+      "technologies": [
+        "JavaScript",
+        "Playwright",
+        "Jenkins",
+        "Jira",
+        "XRay",
+        "Java",
+        "Selenium",
+        "Robot Framework"
+      ],
+      "details": [
+        "Assignments at Covéa in Le Mans and Assura in Lausanne."
+      ],
+      "sources": [
+        "cv-2026"
+      ],
+      "portfolio_path": "/journey"
+    },
+    {
+      "id": "transunion-qa",
+      "organization": "TransUnion",
+      "role": "QA Automation Engineer",
+      "period": {
+        "start": "2021-06",
+        "end": "2021-12"
+      },
+      "location": "Remote from Cali, Colombia",
+      "technologies": [
+        "Selenium",
+        "JMeter",
+        "Postman",
+        "SoapUI",
+        "Docker"
+      ],
+      "details": [
+        "Maintained end-to-end UI automation for financial services and consumer credit applications.",
+        "Prepared test plans, acceptance criteria and validation strategies with product owners, developers and QA.",
+        "Executed functional, exploratory, regression, API and performance tests.",
+        "Used containerized test environments; analysed defects, reported results and supported developers with reproducible issues."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-7"
+      ],
+      "portfolio_path": "/journey"
+    },
+    {
+      "id": "intevo",
+      "organization": "Intevo SAS",
+      "role": "QA Analyst",
+      "period": {
+        "start": "2021-01",
+        "end": "2021-06"
+      },
+      "location": "Remote from Cali, Colombia",
+      "technologies": [
+        "Appium",
+        "Java",
+        "Jira"
+      ],
+      "details": [
+        "Established QA processes for a Colpensiones pension-services mobile application.",
+        "Prepared test plans, scenarios and test cases, and coordinated manual and automated campaigns.",
+        "Automated mobile tests, tracked defects and reported quality findings.",
+        "Collaborated in Scrum ceremonies and Kanban tracking and maintained documentation."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-8"
+      ],
+      "portfolio_path": "/journey"
+    },
+    {
+      "id": "leanovia-internship",
+      "organization": "Leanovia",
+      "role": "Performance Engineering Intern",
+      "period": {
+        "start": "2020-08",
+        "end": "2021-01"
+      },
+      "location": "Cali, Colombia (remote)",
+      "technologies": [
+        "NeoLoad",
+        "Dynatrace"
+      ],
+      "details": [
+        "Benchmarked device providers for Android and iOS mobile performance testing.",
+        "Prepared load-testing and monitoring tooling for mobile applications."
+      ],
+      "sources": [
+        "cv-2026"
+      ],
+      "portfolio_path": "/journey"
+    }
+  ],
+  "projects": [
+    {
+      "id": "cd93",
+      "name": "Seine-Saint-Denis · IODAS ASG and GenAI test platform",
+      "experience_id": "leanovia-current",
+      "period_note": "Within Leanovia employment since October 2023; no exact mission dates asserted.",
+      "technologies": [
+        "Java",
+        "Selenium",
+        "JMeter",
+        "Elastic",
+        "GenAI",
+        "Playwright",
+        "Artillery",
+        "Kubernetes"
+      ],
+      "context": "Modernisation of the IODAS ASG technical platform used by the Solidarité team. Compare the previous and new versions under representative load.",
+      "contributions": [
+        "Scoped the performance-test strategy and representative business load scenarios.",
+        "Developed automated test scripts and test-data generation; established performance baselines.",
+        "Prepared test environments, instrumentation and monitoring; executed load campaigns.",
+        "Analysed bottlenecks and application metrics, documented defects and presented optimisation recommendations.",
+        "Prepared technical documentation and training materials.",
+        "Contributed to a GenAI-assisted platform for running tests and observing applications."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-2"
+      ],
+      "portfolio_path": "/work/public-service-performance"
+    },
+    {
+      "id": "engie",
+      "name": "ENGIE · Web and mobile automation",
+      "experience_id": "leanovia-current",
+      "period_note": "Within Leanovia employment since October 2023; no exact mission dates asserted.",
+      "technologies": [
+        "Java",
+        "Cucumber",
+        "Selenium",
+        "Appium",
+        "BrowserStack",
+        "GitLab CI/CD"
+      ],
+      "context": "Automation supporting digitalisation of internal and customer-facing web and mobile applications.",
+      "contributions": [
+        "Created a reusable automation framework with test data and reports.",
+        "Developed and maintained regression suites across multiple applications.",
+        "Integrated automated execution and reporting into GitLab CI/CD.",
+        "Ran cross-browser, mobile and responsive tests with BrowserStack.",
+        "Contributed to a containerized mobile execution infrastructure and worked with teams to investigate defects.",
+        "Participated in QA, sprint planning, demonstrations and retrospectives."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-3"
+      ],
+      "portfolio_path": "/work/engie-automation"
+    },
+    {
+      "id": "covea",
+      "name": "Covéa · Claims-platform automation",
+      "experience_id": "leanovia-2022",
+      "period_note": "2022, within Leanovia employment; exact mission months unspecified in the CV.",
+      "technologies": [
+        "JavaScript",
+        "Playwright",
+        "Jenkins",
+        "Jira",
+        "XRay"
+      ],
+      "context": "Insurance claims platform used by advisers.",
+      "contributions": [
+        "Developed and maintained automated UI regression tests.",
+        "Defined test strategy and campaigns with product owners, developers and QA.",
+        "Integrated scheduled test execution into Jenkins and produced test reports.",
+        "Tracked anomalies and reported delivery quality in an Agile team."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-5"
+      ],
+      "portfolio_path": "/experience/covea"
+    },
+    {
+      "id": "assura",
+      "name": "Assura · Business-application testing",
+      "experience_id": "leanovia-2022",
+      "period_note": "2022, within Leanovia employment; exact mission months unspecified in the CV.",
+      "technologies": [
+        "Java",
+        "Selenium",
+        "Robot Framework"
+      ],
+      "context": "ATLAS project supporting a health insurer’s business applications in Lausanne.",
+      "contributions": [
+        "Implemented keyword-driven functional test automation.",
+        "Created reusable test data with automated scripts.",
+        "Executed and analysed test campaigns and maintained the test repository.",
+        "Supported defect reproduction and documentation with developers.",
+        "Contributed a Robot Framework proof of concept."
+      ],
+      "sources": [
+        "cv-2026",
+        "technical-slide-6"
+      ],
+      "portfolio_path": "/experience/assura"
+    },
+    {
+      "id": "marketing-ai",
+      "name": "Marketing AI assistant",
+      "status": "In progress",
+      "technologies": [
+        "Python",
+        "Streamlit"
+      ],
+      "context": "Independent learning project, not a completed commercial product.",
+      "contributions": [
+        "Building an AI-assisted marketing application with Streamlit. Scope and evaluation are still evolving."
+      ],
+      "sources": [
+        "owner-confirmed"
+      ],
+      "portfolio_path": "/work/marketing-ai"
+    },
+    {
+      "id": "mio",
+      "name": "M.I.O. predictive models",
+      "status": "Academic project",
+      "technologies": [
+        "Python"
+      ],
+      "context": "Academic project exploring bus travel times in Cali through predictive models and a dashboard.",
+      "sources": [
+        "owner-confirmed"
+      ],
+      "portfolio_path": "/work/mio-predictive-models"
+    }
+  ],
+  "education": [
+    {
+      "name": "Software Engineering degree",
+      "institution": "Universidad Icesi, Cali, Colombia",
+      "year": 2021,
+      "sources": [
+        "cv-2026"
+      ]
+    },
+    {
+      "name": "Scientific baccalaureate",
+      "institution": "Lycée Français Paul Valéry, Cali, Colombia",
+      "sources": [
+        "cv-2026"
+      ]
+    },
+    {
+      "name": "Generative AI bootcamp",
+      "institution": "Wave IT Labs",
+      "start": "2025-11",
+      "end": "2026-01",
+      "duration_months": 3,
+      "sources": [
+        "owner-confirmed"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "ISTQB AI Testing",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "name": "ISTQB GenAI Testing",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "name": "ISTQB Foundation Level",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "name": "ISTQB Performance Testing",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "name": "Dynatrace Associate",
+      "years": [
+        2022,
+        2026
+      ]
+    },
+    {
+      "name": "Datadog Fundamentals, APM and Logs",
+      "years": [
+        2025
+      ]
+    },
+    {
+      "name": "NeoLoad Professional",
+      "years": [
+        2022
+      ]
+    },
+    {
+      "name": "Tricentis Tosca Automation Engineer and Test Design Specialist",
+      "years": [
+        2022
+      ]
+    }
+  ],
+  "personal": {
+    "hobbies": [
+      "Painting",
+      "Ballet",
+      "Tennis",
+      "Languages"
+    ],
+    "favourite_artist": "Claude Monet",
+    "current_learning": "Self-directed learning in using AI to automate QA processes and work more effectively.",
+    "sources": [
+      "owner-confirmed"
+    ]
+  },
+  "unknowns": [
+    "Salary expectations",
+    "Exact availability or notice period",
+    "Private client data",
+    "Quantified project outcomes not documented in the sources",
+    "Exact individual ENGIE, Seine-Saint-Denis, Covéa and Assura mission dates"
+  ],
+  "source_catalog": [
+    {
+      "id": "cv-2026",
+      "title": "Latest CV · Diana Torres",
+      "file_name": "Diana-Torres-CV-FR (2).pdf",
+      "sha256": "74c970c37b2ea94d65f1b82af4cbad391c0a2ff72ad47ff9db5d04dd30ebd95b",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-2",
+      "title": "Technical dossier · slide 2",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-3",
+      "title": "Technical dossier · slide 3",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-4",
+      "title": "Technical dossier · slide 4",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-5",
+      "title": "Technical dossier · slide 5",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-6",
+      "title": "Technical dossier · slide 6",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-7",
+      "title": "Technical dossier · slide 7",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "technical-slide-8",
+      "title": "Technical dossier · slide 8",
+      "file_name": "DianaTORRES_DossierTechnique (2).pptx",
+      "sha256": "9ea162a3bdf57d8f1069729b4450c65f34882da519200cb0fe705e30d3ec4908",
+      "path": "/journey"
+    },
+    {
+      "id": "owner-confirmed",
+      "title": "Owner-confirmed public portfolio information",
+      "path": "/about"
+    }
+  ]
+}
