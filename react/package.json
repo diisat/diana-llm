@@ -1,0 +1,1 @@
+{"name":"@diisat/diana-llm-react","version":"1.0.0","private":true,"type":"module","exports":{".":"./ChatSidebar.jsx","./chat.css":"./chat.css"},"peerDependencies":{"react":">=19 <20"}}
