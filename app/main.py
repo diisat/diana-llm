@@ -13,7 +13,11 @@ load_dotenv(Path(__file__).resolve().parents[1] / '.env')
 os.environ["LANGSMITH_TRACING"] = "false"
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 # No tracing or chat persistence by default. Do not log prompts or provider exceptions.
-from .service import generate_answer
+from .service import generate_answer, answer_cache_key
+from .cache import AnswerCache
+
+answer_cache = AnswerCache(max_entries=int(os.getenv("CHAT_CACHE_MAX_ENTRIES", "128")),
+                           ttl=int(os.getenv("CHAT_CACHE_TTL_SECONDS", "86400")))
 
 app = FastAPI(title='DianaLLM', version='1.0.0', docs_url=None, redoc_url=None, openapi_url=None)
 slots = asyncio.Semaphore(3)
@@ -73,6 +77,9 @@ async def health():
 async def chat(payload: ChatRequest):
     if not os.getenv('GROQ_API_KEY'):
         raise HTTPException(503, 'Chat is not configured yet')
+    return await answer_cache.resolve(answer_cache_key(payload), lambda: uncached_answer(payload))
+
+async def uncached_answer(payload):
     if slots.locked():
         raise HTTPException(429, 'Chat busy', headers={'Retry-After':'10'})
     budget.take()
