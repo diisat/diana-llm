@@ -1,0 +1,20 @@
+# Optional overlay: docker compose -f compose.yaml -f compose.chat.yaml up --build
+services:
+  diana-llm:
+    build: ../diana-llm
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GROQ_MODEL: ${GROQ_MODEL:-openai/gpt-oss-20b}
+      CHAT_SERVICE_TOKEN: ${CHAT_SERVICE_TOKEN:?Set the shared chatbot secret}
+      CHAT_REQUESTS_PER_MINUTE: 20
+      CHAT_REQUESTS_PER_DAY: 200
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health')"]
+      interval: 10s
+      timeout: 3s
+      start_period: 15s
+      retries: 5
+  frontend:
+    environment:
+      CHAT_SERVICE_URL: http://diana-llm:8001
+      CHAT_SERVICE_TOKEN: ${CHAT_SERVICE_TOKEN:?Set the shared chatbot secret}
