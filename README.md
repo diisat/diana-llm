@@ -49,7 +49,7 @@ node scripts/sync-portfolio.mjs ../diana-creative-portfolio
 
 This copies `react/ChatSidebar.jsx` and `react/chat.css` into the portfolio's `frontend/components/diana-llm/`. The independent repository owns these two files; rerun the script after editing them. It does not replace the portfolio header or proxy. The matching gateway source is included in [`integration/next-route.js`](integration/next-route.js); copy it to `app/api/chat/route.js` when integrating into another Next.js project. The Docker overlay is also included in `integration/`.
 
-The portfolio already includes a Next.js `app/api/chat/route.js` gateway and mounts the sidebar from `components/Shell.js`. Server environment:
+The local portfolio working copy includes a Next.js `app/api/chat/route.js` gateway and mounts the sidebar from `components/Shell.js`. These portfolio integration changes have not been pushed to `atelier-diana`; the independent chatbot sources are published here. For a fresh portfolio checkout, copy `integration/next-route.js` to `frontend/app/api/chat/route.js`, sync the two React files, and mount the sidebar with the controlled `open`/`onClose` props shown below. Server environment:
 
 ```dotenv
 CHAT_SERVICE_URL=http://127.0.0.1:8001
