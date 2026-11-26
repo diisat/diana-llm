@@ -15,11 +15,12 @@ DianaLLM uses an existing hosted language model with a curated profile. It does 
 | Independent API | Python 3.11, FastAPI, Pydantic, Uvicorn | Authentication, input limits, request budgets, timeouts |
 | AI orchestration | LangChain Core + `langchain-groq` | Prompt, bounded conversation history, structured response |
 | Model provider | Groq API | `openai/gpt-oss-20b`, configurable through `GROQ_MODEL` |
-| Knowledge | `data/diana-profile.json` | Curated public facts, source precedence and provenance |
+| Knowledge | `data/diana-profile.json`, local lexical retrieval | Select relevant public facts with source precedence and provenance |
+| FAQ cache | Python RAM cache, TTL + LRU | Reuse public answers without a provider request |
 | Verification | pytest, HTTPX, portfolio Playwright tests | API contract, failures, integration and keyboard/mobile behaviour |
 | Deployment | Docker | Independent private service, non-root process |
 
-Pattern: **layered service with adapters**, kept small. FastAPI is the HTTP layer; `service.py` contains prompt/answer orchestration; ChatGroq is the provider adapter. React is an independent API client. This version injects the whole small profile into context. It is not a vector-search/RAG pipeline, and PostgreSQL is not a dependency of the chat.
+Pattern: **layered service with adapters**, kept small. FastAPI is the HTTP layer; `service.py` contains prompt/answer orchestration; ChatGroq is the provider adapter. React is an independent API client. `retrieval.py` selects relevant facts locally, without embeddings or an extra model call; `cache.py` reuses approved public FAQ answers. PostgreSQL is not a dependency of the chat.
 
 ## Local setup
 
@@ -85,9 +86,24 @@ The component does not call Groq directly and must point to a server gateway you
 }
 ```
 
-Limits: 1,500 characters per question; eight history turns with at most 1,200 characters each and 8,000 total; 16 KiB request body; 2,048 completion tokens (including reasoning); three concurrent provider calls. Default global budgets: 20 requests/minute and 200/day per process. Run **one worker**. These limits reset on restart and are not a durable billing ceiling. Configure provider spend controls; use shared durable limits before horizontal scaling.
+Input limits: 1,500 characters per question; eight history turns with at most 1,200 characters each and 8,000 total; 16 KiB request body. Only the last four turns, capped at 500 characters each, are sent to Groq. Selected profile context is capped at 6,500 characters; output at 1,024 completion tokens (including reasoning), with answers normally under 100 words. Up to three concurrent provider calls. Default global budgets: 20 provider attempts/minute and 200/day per process. Cache hits do not consume these provider budgets. Run **one worker**. These limits reset on restart and are not a durable billing ceiling. Configure provider spend controls; use shared durable limits before horizontal scaling.
 
 Statuses: 401 invalid service token, 413 body too large, 422 invalid fields, 429 local or provider rate limit, 502 provider/structured-output failure, 503 missing configuration, 504 timeout. Provider errors, keys and prompts are never returned to the client. Source IDs are checked against a server-owned catalogue; URLs cannot be supplied by the model. Related-page links are navigation aids, not proof that every generated claim is correct.
+
+## Token savings and public FAQ cache
+
+The complete profile stays on the Python server. A local multilingual selector matches the question to employers, projects or topics such as languages, education and hobbies. It sends complete relevant facts, their source IDs, basic identity and uncertainty notes. It omits unrelated projects and document hashes. Short follow-up questions can reuse an employer named in recent user messages. This is deterministic lexical retrieval, with no embeddings, vector database or additional Groq requests. Unusual wording can miss a match; ask with the employer/project name if the answer lacks detail.
+
+`app/faq.py` lists approved questions in English, French and Spanish, including the sidebar suggestions. Matching ignores case, accents, whitespace and punctuation; additional paraphrases can be added to that list. Only these questions **with an empty history** share cached answers. The first request uses Groq; subsequent matches reuse the answer with zero Groq tokens. Locale, profile revision, prompt and model are part of the cache key. Concurrent requests for the same FAQ share one generation. Failed requests are never cached.
+
+```dotenv
+CHAT_CACHE_TTL_SECONDS=86400
+CHAT_CACHE_MAX_ENTRIES=128
+```
+
+The default is 24 hours and at most 128 entries, with least recently used eviction. Set either value to `0` to disable the cache. It lives only in RAM, is cleared on restart and is independent for each worker. It does not store arbitrary visitor questions or conversation history. Restart after editing the profile, FAQ list, prompt or environment. Keep one worker until shared cache/rate-limit storage is introduced.
+
+The optimization reduces submitted context and avoids repeated requests. It does not remove Groq's account limits. Provider prompt caching can also affect token accounting, so a reduction in prompt length is not a guaranteed quota multiplier. See the [measured results and limitations](docs/optimization.md).
 
 ## Profile sources and precedence
 
