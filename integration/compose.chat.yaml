@@ -8,6 +8,8 @@ services:
       CHAT_SERVICE_TOKEN: ${CHAT_SERVICE_TOKEN:?Set the shared chatbot secret}
       CHAT_REQUESTS_PER_MINUTE: 20
       CHAT_REQUESTS_PER_DAY: 200
+      CHAT_CACHE_TTL_SECONDS: ${CHAT_CACHE_TTL_SECONDS:-86400}
+      CHAT_CACHE_MAX_ENTRIES: ${CHAT_CACHE_MAX_ENTRIES:-128}
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health')"]
       interval: 10s
